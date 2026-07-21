@@ -17,6 +17,7 @@ MONGO_URL = os.getenv("MONGO_URL", "")
 # ================== CHATBOT API ==================
 
 API_URL = os.getenv("API_URL", "")
+API_KEY = os.getenv("API_KEY", "")
 
 # ================== OWNER ==================
 
@@ -38,3 +39,6 @@ if not MONGO_URL:
 
 if not API_URL:
     raise ValueError("API_URL is missing")
+
+if not API_KEY:
+    raise ValueError("API_KEY is missing")

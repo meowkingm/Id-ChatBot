@@ -4,7 +4,7 @@ from motor.motor_asyncio import AsyncIOMotorClient
 from pyrogram import enums, filters
 from pyrogram.types import Message
 
-from config import API_URL, MONGO_URL
+from config import API_URL, API_KEY, MONGO_URL
 from MeowChat import app
 from MeowChat.utils.admins import admin_check
 
@@ -107,10 +107,11 @@ async def chatbot_reply(client, message: Message):
 
     final_text = f"{PROMPT}\nUser: {message.text}"
     payload = {"message": final_text}
+    headers = {"x-api-key": API_KEY}
 
     try:
         async with httpx.AsyncClient(timeout=10) as clientx:
-            res = await clientx.post(API_URL, json=payload)
+            res = await clientx.post(API_URL, json=payload, headers=headers)
 
             if res.status_code == 200:
                 data = res.json()
