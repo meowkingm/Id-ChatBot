@@ -41,6 +41,7 @@ API_HASH=your_api_hash
 STRING_SESSION=your_string_session
 MONGO_URL=your_mongo_url
 API_URL=your_chatbot_api
+API_KEY=your_chatbot_api_key
 OWNER_ID=your_telegram_id
 ```
 
