@@ -11,7 +11,7 @@ from MeowChat.utils.admins import admin_check
 # ================== DATABASE ==================
 
 mongo = AsyncIOMotorClient(MONGO_URL)
-db = mongo["chatbot"]
+db = mongo.get_default_database("ChatBot")
 col = db["status"]
 
 # ================== SETTINGS ==================
